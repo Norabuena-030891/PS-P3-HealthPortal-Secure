@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from patients.views import home  # <-- IMPORTANTE: Agregar esto
 
 urlpatterns = [
+    path('', home, name='home'), # <-- IMPORTANTE: Nuestra nueva ruta
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), # Conectamos las rutas de tu app
 ]

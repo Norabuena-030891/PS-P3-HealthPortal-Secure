@@ -1,6 +1,8 @@
 # PS-P3 — UQ·HealthShield | Secure Health Portal with End-to-End PHI Encryption
+
 ### DD281 Programación Segura · Universidad Autónoma del Perú · 2026-1 · UQ AI SOLUTION COMPANY SAC
 
+[![Django CI/CD Pipeline](https://github.com/RubenCarty/PS-P3-HealthPortal-Secure/actions/workflows/ci.yml/badge.svg)](https://github.com/RubenCarty/PS-P3-HealthPortal-Secure/actions/workflows/ci.yml)
 [![Grupo](https://img.shields.io/badge/Grupo-G3-blue?style=for-the-badge)]()
 [![Stack](https://img.shields.io/badge/Stack-Python%20%7C%20Django%205%20%7C%20Azure-orange?style=for-the-badge)]()
 [![Journal](https://img.shields.io/badge/Target-J.Biomedical_Informatics_Q1-red?style=for-the-badge)]()
@@ -13,13 +15,13 @@
 > Todos los grupos del curso publican su investigación en journals Scopus Q1 al término del ciclo.
 > El docente es coautor y guía el proceso de publicación.
 
-| Grupo | Proyecto | Título Scopus Q1 Optimizado | Journal Target | Q |
-|:---:|---|---|---|:---:|
-| G1 | UQ·SecureID | "Zero-Trust Behavioral Authentication: A Machine Learning-Enhanced Identity Verification Framework with Anomaly Detection for Continuous User Authentication in Cloud-Native Web Applications" | Computers & Security — Elsevier | Q1 |
-| G2 | UQ·FinSecure | "SecureFinAPI: A Hybrid Machine Learning and Rule-Based Fraud Detection System for RESTful Banking APIs Compliant with OWASP API Security Top 10" | J. Information Security & Applications — Elsevier | Q1 |
-| **G3** | **UQ·HealthShield** | **"PrivacyShield: An End-to-End Encrypted Electronic Health Record System with Attribute-Based Access Control for HIPAA and Ley N°29733 Compliance"** | **J. Biomedical Informatics — Elsevier** | **Q1** |
-| G4 | UQ·CivicVote | "CryptoVote: A Blockchain-Enhanced Electronic Voting Protocol with Zero-Knowledge Proof Verification for Tamper-Resistant and Privacy-Preserving Democratic Processes" | Future Generation Computer Systems — Elsevier | Q1 |
-| G5 | UQ·AuditAI | "AutoPenTest-AI: An Artificial Intelligence-Driven Automated Web Penetration Testing Framework with Natural Language Vulnerability Reporting Based on OWASP Top 10" | IEEE Access — IEEE | Q1 |
+| Grupo  | Proyecto            | Título Scopus Q1 Optimizado                                                                                                                                                                    | Journal Target                                    |   Q    |
+| :----: | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | :----: |
+|   G1   | UQ·SecureID         | "Zero-Trust Behavioral Authentication: A Machine Learning-Enhanced Identity Verification Framework with Anomaly Detection for Continuous User Authentication in Cloud-Native Web Applications" | Computers & Security — Elsevier                   |   Q1   |
+|   G2   | UQ·FinSecure        | "SecureFinAPI: A Hybrid Machine Learning and Rule-Based Fraud Detection System for RESTful Banking APIs Compliant with OWASP API Security Top 10"                                              | J. Information Security & Applications — Elsevier |   Q1   |
+| **G3** | **UQ·HealthShield** | **"PrivacyShield: An End-to-End Encrypted Electronic Health Record System with Attribute-Based Access Control for HIPAA and Ley N°29733 Compliance"**                                          | **J. Biomedical Informatics — Elsevier**          | **Q1** |
+|   G4   | UQ·CivicVote        | "CryptoVote: A Blockchain-Enhanced Electronic Voting Protocol with Zero-Knowledge Proof Verification for Tamper-Resistant and Privacy-Preserving Democratic Processes"                         | Future Generation Computer Systems — Elsevier     |   Q1   |
+|   G5   | UQ·AuditAI          | "AutoPenTest-AI: An Artificial Intelligence-Driven Automated Web Penetration Testing Framework with Natural Language Vulnerability Reporting Based on OWASP Top 10"                            | IEEE Access — IEEE                                |   Q1   |
 
 ---
 
@@ -37,17 +39,20 @@
 ### ❗ Problema que Resuelve
 
 Los sistemas de salud digitales enfrentan la peor combinación posible: **datos ultra-sensibles + seguridad deficiente**. Según el Informe de Brechas de Salud 2023 (IBM):
+
 - El sector salud tuvo el **costo promedio de brecha más alto**: $10.9 millones USD por incidente
 - El **60% de hospitales peruanos** no cumple criterios mínimos de protección de datos (INEI 2023)
 - Los datos médicos se venden en mercado negro por **$250–$1,000 USD** por expediente (vs. $1-5 USD para datos de tarjeta)
 
 Los problemas técnicos que resuelve UQ·HealthShield:
+
 1. **Datos clínicos en texto plano en BD**: diagnósticos, medicamentos y notas accesibles a cualquiera con acceso a la BD
 2. **Control de acceso genérico**: médicos pueden ver historias de pacientes que no les corresponden
 3. **Sin consentimiento digital**: no hay mecanismo para que el paciente controle quién accede a sus datos
 4. **No cumple Ley N°29733**: falta registro de accesos y protección de datos sensibles
 
 **UQ·HealthShield** resuelve esto con:
+
 - Cifrado AES-256-GCM de todos los campos PHI (Protected Health Information) en la base de datos
 - Control de acceso ABAC (Attribute-Based): solo el médico tratante accede a su paciente
 - Consentimiento digital registrado y auditable
@@ -61,6 +66,7 @@ Los problemas técnicos que resuelve UQ·HealthShield:
 Desarrollar e implementar un portal de salud digital que garantice la confidencialidad, integridad y disponibilidad de los datos médicos mediante cifrado AES-256-GCM end-to-end y control de acceso basado en atributos (ABAC), cumpliendo con HIPAA y la Ley N°29733 del Perú.
 
 **Objetivos Específicos:**
+
 1. Implementar cifrado transparente de PHI con AES-256-GCM en modelos Django (EncryptedField)
 2. Diseñar el esquema ABAC para 5 roles: paciente / médico / enfermero / admin / auditor
 3. Construir el módulo de consentimiento informado digital con firma criptográfica
@@ -92,6 +98,7 @@ S8 ★ EF: Presentación Final 100%
 **Objetivo:** Diseñar el sistema antes de codificar, clasificando qué datos deben cifrarse.
 
 **Tareas del equipo:**
+
 - [ ] Hacer fork del repositorio: `https://github.com/RubenCarty/PS-P3-HealthPortal-Secure`
 - [ ] Configurar Django 5.0.7 + django-axes + django-csp
 - [ ] Clasificar datos del portal en 3 niveles: Público / Confidencial / Altamente Confidencial
@@ -101,6 +108,7 @@ S8 ★ EF: Presentación Final 100%
 - [ ] Documentar Privacy Impact Assessment en `docs/semana-01/pia.md`
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S1-ApellidoNombre-setup-clasificacion-datos
 ```
@@ -112,6 +120,7 @@ git checkout -b feature/S1-ApellidoNombre-setup-clasificacion-datos
 **Objetivo:** Solo personal autorizado con doble factor accede al sistema.
 
 **Tareas del equipo:**
+
 - [ ] Implementar login Django con rate limiting (django-axes: max 5 intentos)
 - [ ] Implementar TOTP obligatorio para rol médico y admin (pyotp + QR code)
 - [ ] Implementar TOTP opcional para enfermeros y pacientes
@@ -121,6 +130,7 @@ git checkout -b feature/S1-ApellidoNombre-setup-clasificacion-datos
 - [ ] Templates de login diferenciados por rol
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S2-ApellidoNombre-auth-2fa-medico
 ```
@@ -132,6 +142,7 @@ git checkout -b feature/S2-ApellidoNombre-auth-2fa-medico
 **Objetivo:** Todos los campos sensibles cifrados automáticamente — incluso si alguien accede a la BD, no ve nada.
 
 **Tareas del equipo:**
+
 - [ ] Implementar `apps/patients/encryption.py`:
   - `PHIEncryption._get_key()`: PBKDF2HMAC con SHA-256, 480,000 iteraciones
   - `PHIEncryption.encrypt()`: AES-256-GCM con nonce aleatorio de 12 bytes
@@ -143,6 +154,7 @@ git checkout -b feature/S2-ApellidoNombre-auth-2fa-medico
 - [ ] Tests: cifrado → descifrado correcto, dato alterado → excepción capturada
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S3-ApellidoNombre-cifrado-phi-aes256
 ```
@@ -152,6 +164,7 @@ git checkout -b feature/S3-ApellidoNombre-cifrado-phi-aes256
 ### SEMANA 4 ★ — EP: EVALUACIÓN PARCIAL (60% del proyecto)
 
 **Entregables OBLIGATORIOS:**
+
 1. **Pull Request** con avances S1–S4 integrados en `main`
 2. **Demo en vivo** (15 minutos):
    - Login médico con 2FA (mostrar QR + código TOTP)
@@ -162,6 +175,7 @@ git checkout -b feature/S3-ApellidoNombre-cifrado-phi-aes256
 3. **Tests corriendo** en CI/CD (badge verde)
 
 **Branch a crear:**
+
 ```bash
 git checkout -b release/EP-S4-NombreGrupo
 ```
@@ -182,6 +196,7 @@ git checkout -b release/EP-S4-NombreGrupo
 **Objetivo:** Solo el médico responsable puede ver a su paciente. El paciente controla quién accede.
 
 **Tareas del equipo:**
+
 - [ ] Implementar ABAC: `MedicalAccess` tabla con `doctor_id`, `patient_id`, `granted_at`, `expires_at`
 - [ ] Decorador `@requires_patient_consent(patient_id)` para rutas de historia clínica
 - [ ] Módulo de consentimiento: paciente puede otorgar/revocar acceso a un médico
@@ -190,6 +205,7 @@ git checkout -b release/EP-S4-NombreGrupo
 - [ ] Admin puede ver el audit de consentimientos
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S5-ApellidoNombre-abac-consentimiento
 ```
@@ -201,6 +217,7 @@ git checkout -b feature/S5-ApellidoNombre-abac-consentimiento
 **Objetivo:** App en `health.uqaisolutions.com.pe` con claves de cifrado en Azure Key Vault (no en código).
 
 **Tareas del equipo:**
+
 - [ ] Crear Azure App Service (Python 3.11, Django, westus3)
 - [ ] Clave maestra de cifrado PHI → Azure Key Vault (NUNCA en .env ni en código)
 - [ ] Configurar Azure SQL Database
@@ -209,6 +226,7 @@ git checkout -b feature/S5-ApellidoNombre-abac-consentimiento
 - [ ] Verificar HSTS activo en producción
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S6-ApellidoNombre-azure-keyvault-deploy
 ```
@@ -220,6 +238,7 @@ git checkout -b feature/S6-ApellidoNombre-azure-keyvault-deploy
 **Objetivo:** Documentar y demostrar compliance con regulaciones de salud.
 
 **Tareas del equipo:**
+
 - [ ] Implementar `AuditLog` inmutable: cada acceso a PHI registra quién/cuándo/qué/desde dónde
 - [ ] Log inmutable: los registros de audit no pueden editarse ni borrarse (sin UPDATE/DELETE en tabla)
 - [ ] Completar `docs/compliance/hipaa_checklist.md` con los 18 controles PHI
@@ -228,6 +247,7 @@ git checkout -b feature/S6-ApellidoNombre-azure-keyvault-deploy
 - [ ] Solicitar escaneo a G5 (AuditAI) y documentar remediaciones
 
 **Branch a crear:**
+
 ```bash
 git checkout -b feature/S7-ApellidoNombre-audit-trail-compliance
 ```
@@ -237,6 +257,7 @@ git checkout -b feature/S7-ApellidoNombre-audit-trail-compliance
 ### SEMANA 8 ★ — EF: EVALUACIÓN FINAL (Proyecto 100%)
 
 **Entregables OBLIGATORIOS:**
+
 1. **Pull Request final** fusionado en `main`
 2. **Demo completa** (20 minutos) en `health.uqaisolutions.com.pe`
 3. **Paper draft** — Abstract + Methodology completos
@@ -256,11 +277,13 @@ git checkout -b feature/S7-ApellidoNombre-audit-trail-compliance
 ## 🔧 Flujo de Trabajo GitHub (Obligatorio)
 
 ### 1. Fork del repositorio
+
 ```
 GitHub → https://github.com/RubenCarty/PS-P3-HealthPortal-Secure → Fork
 ```
 
 ### 2. Configurar tu fork
+
 ```bash
 git clone https://github.com/TU-USUARIO/PS-P3-HealthPortal-Secure.git
 cd PS-P3-HealthPortal-Secure
@@ -269,12 +292,14 @@ git fetch upstream
 ```
 
 ### 3. Sincronizar y crear branch semanal
+
 ```bash
 git checkout main && git pull upstream main && git push origin main
 git checkout -b feature/S3-MamaniAna-cifrado-aes256-phi
 ```
 
 ### 4. Commit + Push + PR
+
 ```bash
 git add apps/patients/encryption.py apps/patients/models.py
 git commit -m "feat(S3): implement AES-256-GCM transparent field encryption for PHI"
@@ -287,29 +312,33 @@ git push origin feature/S3-MamaniAna-cifrado-aes256-phi
 ## 📚 Repositorios de Referencia
 
 ### Django y Seguridad Web
-| Repositorio | Qué aprender |
-|---|---|
-| [django/django](https://github.com/django/django) | Documentación oficial Django — Security middleware, CSRF, sessions |
-| [jazzband/django-axes](https://github.com/jazzband/django-axes) | Rate limiting y bloqueo de brute force en Django |
-| [mozilla/django-csp](https://github.com/mozilla/django-csp) | Content Security Policy para Django |
-| [ottoyiu/django-cors-headers](https://github.com/adamchainz/django-cors-headers) | CORS seguro en Django APIs |
+
+| Repositorio                                                                      | Qué aprender                                                       |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [django/django](https://github.com/django/django)                                | Documentación oficial Django — Security middleware, CSRF, sessions |
+| [jazzband/django-axes](https://github.com/jazzband/django-axes)                  | Rate limiting y bloqueo de brute force en Django                   |
+| [mozilla/django-csp](https://github.com/mozilla/django-csp)                      | Content Security Policy para Django                                |
+| [ottoyiu/django-cors-headers](https://github.com/adamchainz/django-cors-headers) | CORS seguro en Django APIs                                         |
 
 ### Cifrado y Criptografía Python
-| Repositorio | Qué aprender |
-|---|---|
-| [pyca/cryptography](https://github.com/pyca/cryptography) | Librería oficial — AES-GCM, RSA, PBKDF2 con ejemplos |
-| [fernet/fernet-spec](https://github.com/fernet/spec) | Especificación de cifrado simétrico (alternativa a GCM) |
+
+| Repositorio                                               | Qué aprender                                            |
+| --------------------------------------------------------- | ------------------------------------------------------- |
+| [pyca/cryptography](https://github.com/pyca/cryptography) | Librería oficial — AES-GCM, RSA, PBKDF2 con ejemplos    |
+| [fernet/fernet-spec](https://github.com/fernet/spec)      | Especificación de cifrado simétrico (alternativa a GCM) |
 
 ### Health y HIPAA
-| Repositorio | Qué aprender |
-|---|---|
-| [hapifhir/hapi-fhir](https://github.com/hapifhir/hapi-fhir) | Estándar FHIR para interoperabilidad de datos de salud |
-| [openemr/openemr](https://github.com/openemr/openemr) | Sistema EHR open source más completo — arquitectura de referencia |
-| [topics/hipaa](https://github.com/topics/hipaa) | Proyectos relacionados con compliance HIPAA |
+
+| Repositorio                                                 | Qué aprender                                                      |
+| ----------------------------------------------------------- | ----------------------------------------------------------------- |
+| [hapifhir/hapi-fhir](https://github.com/hapifhir/hapi-fhir) | Estándar FHIR para interoperabilidad de datos de salud            |
+| [openemr/openemr](https://github.com/openemr/openemr)       | Sistema EHR open source más completo — arquitectura de referencia |
+| [topics/hipaa](https://github.com/topics/hipaa)             | Proyectos relacionados con compliance HIPAA                       |
 
 ### Audit Trail y Logging
-| Repositorio | Qué aprender |
-|---|---|
+
+| Repositorio                                                             | Qué aprender                               |
+| ----------------------------------------------------------------------- | ------------------------------------------ |
 | [jazzband/django-auditlog](https://github.com/jazzband/django-auditlog) | Audit trail automático para modelos Django |
 
 ---
@@ -412,13 +441,13 @@ python manage.py check --deploy  # Chequeo de seguridad Django
 
 ## 👥 Integrantes del Grupo G3
 
-| # | Nombre | GitHub | Rol Técnico |
-|:---:|---|---|---|
-| 1 | [Completar] | [@usuario](https://github.com/usuario) | Líder / Auth 2FA |
-| 2 | [Completar] | [@usuario](https://github.com/usuario) | Cifrado AES-256-GCM + Modelos |
-| 3 | [Completar] | [@usuario](https://github.com/usuario) | ABAC + Consentimiento |
-| 4 | [Completar] | [@usuario](https://github.com/usuario) | Audit Trail + Compliance |
-| 5 | [Completar] | [@usuario](https://github.com/usuario) | Azure Deploy + CI/CD |
+|  #  | Nombre      | GitHub                                 | Rol Técnico                   |
+| :-: | ----------- | -------------------------------------- | ----------------------------- |
+|  1  | [Completar] | [@usuario](https://github.com/usuario) | Líder / Auth 2FA              |
+|  2  | [Completar] | [@usuario](https://github.com/usuario) | Cifrado AES-256-GCM + Modelos |
+|  3  | [Completar] | [@usuario](https://github.com/usuario) | ABAC + Consentimiento         |
+|  4  | [Completar] | [@usuario](https://github.com/usuario) | Audit Trail + Compliance      |
+|  5  | [Completar] | [@usuario](https://github.com/usuario) | Azure Deploy + CI/CD          |
 
 ---
 
@@ -430,5 +459,5 @@ python manage.py check --deploy  # Chequeo de seguridad Django
 
 ---
 
-*Universidad Autónoma del Perú — DD281 Programación Segura — 2026-1*
-*UQ AI SOLUTION COMPANY SAC — Ciclo VIII — Ingeniería de Sistemas*
+_Universidad Autónoma del Perú — DD281 Programación Segura — 2026-1_
+_UQ AI SOLUTION COMPANY SAC — Ciclo VIII — Ingeniería de Sistemas_
